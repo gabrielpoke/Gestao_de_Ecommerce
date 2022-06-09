@@ -1,0 +1,26 @@
+.tabela {
+  /* Apenas para centralizar o form na página */
+  margin: 0 auto;
+  width: 70%;
+
+  margin-top: 3.5em;
+
+  /* Para ver as bordas do formulário */
+  padding: 1em;
+  background-color: white;
+  box-shadow: 5px -9px 3px #000;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+
+table div + div {
+  margin-top: 1em;
+}
+
+th {
+  background-color: rgba(233, 160, 248, 0.699);
+}
+
+td {
+  background-color: rgb(219, 183, 228);
+}

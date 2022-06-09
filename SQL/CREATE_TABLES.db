@@ -1,0 +1,70 @@
+CREATE TABLE table_cliente(
+   codigo BIGINT NOT NULL AUTO_INCREMENT,
+   nome varchar(50) NOT NULL,
+   email varchar(50) NOT NULL,
+   telefone varchar(11) NOT NULL,
+   enderco varchar(50) NOT NULL,
+   bairro varchar(50) NOT NULL,
+   cidade varchar(50) NOT NULL,
+   cep BIGINT(8) NOT NULL,
+   cpf BIGINT(11) NOT NULL,
+   ativo BIT, 
+   
+   PRIMARY KEY(codigo)
+);
+
+CREATE TABLE table_cargo(
+   codigo BIGINT NOT NULL AUTO_INCREMENT,
+   nome varchar(50) NOT NULL,
+   observacao varchar(100),
+   ativo BIT, 
+   
+   PRIMARY KEY(codigo)
+);
+
+CREATE TABLE table_colaborador(
+   codigo BIGINT NOT NULL AUTO_INCREMENT,
+   nome varchar(50) NOT NULL,
+   codigo_cargo BIGINT NOT NULL,
+   email varchar(50) NOT NULL,
+   observacao varchar(100),
+   ativo BIT, 
+   
+   FOREIGN KEY (codigo_cargo) REFERENCES table_cargo(codigo),
+   PRIMARY KEY(codigo)
+);
+
+CREATE TABLE table_categoria(
+	codigo BIGINT NOT NULL AUTO_INCREMENT,
+    nome varchar(50) NOT NULL,
+    descricao varchar(100) NOT NULL,
+    
+    PRIMARY KEY(codigo)
+);
+
+CREATE TABLE table_produto(
+   codigo BIGINT NOT NULL AUTO_INCREMENT,
+   nome varchar(50) NOT NULL,
+   codigo_categoria BIGINT NOT NULL,
+   valor BIGINT NOT NULL,
+   quantidade BIGINT NOT NULL,
+   observacao varchar(100),
+   ativo BIT,
+   
+   FOREIGN KEY (codigo_categoria) REFERENCES table_categoria(codigo),
+   PRIMARY KEY(codigo)
+);
+
+CREATE TABLE table_pedido(
+   codigo BIGINT NOT NULL AUTO_INCREMENT,
+   codigo_cliente BIGINT NOT NULL,
+   codigo_colaborador BIGINT NOT NULL,
+   codigo_produto BIGINT NOT NULL,
+   
+   FOREIGN KEY (codigo_cliente) REFERENCES table_cliente(codigo),
+   FOREIGN KEY (codigo_colaborador) REFERENCES table_colaborador(codigo),
+   FOREIGN KEY (codigo_produto) REFERENCES table_produto(codigo),
+   PRIMARY KEY(codigo)
+);
+
+

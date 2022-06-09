@@ -1,0 +1,11 @@
+DROP TABLE table_pedido;
+
+DROP TABLE table_cliente;
+
+DROP TABLE table_colaborador;
+
+DROP TABLE table_cargo;
+
+DROP TABLE table_produto;
+
+DROP TABLE table_categoria;
